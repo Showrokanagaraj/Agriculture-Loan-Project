@@ -1,0 +1,255 @@
+/* Container for the entire User home page */
+.AdminHomePageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Navbar container */
+  .AdminHomePageNavbar {
+    background: linear-gradient(#0fa142, #000729);
+    padding: 1rem 2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  /* Profile component styling */
+  .profile {
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2d6a4f;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+  
+  /* Notification icon styling */
+  .notifications {
+    color: #ffffff;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Menu button (visible in mobile view) */
+  .menu-button {
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2; /* Ensure it's above the menu */
+    position: relative; /* Keep it in flow with the document */
+  }
+  
+  /* Navbar styling */
+  .AdminHomePageNavbar nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .AdminHomePageNavbar nav ul li {
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .AdminHomePageNavbar nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .AdminHomePageNavbar nav ul li a svg {
+    margin-right: 8px; /* Space between icon and text */
+  }
+  
+  /* Change color on hover */
+  .AdminHomePageNavbar nav ul li a:hover {
+    color: #95b3d5;
+  }
+  
+  /* Logout button styling */
+  .logout a {
+    color: #ffffff;
+  }
+  
+  /* Add shake animation */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* Apply shake animation to the notification icon on hover */
+  .notifications:hover {
+    animation: shake 0.5s;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .AdminHomePageNavbar {
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+    }
+  
+    .AdminHomePageNavbar nav {
+      display: none; /* Initially hidden */
+      position: fixed; /* Fixed positioning for overlay effect */
+      top: 60px;
+      left: 0;
+      width: 100vw; /* Cover full viewport width */
+      height: 100vh; /* Cover full viewport height */
+      background:linear-gradient(#0c9e25, #000729);
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1; /* Ensure it is below the menu button */
+      transform: translateX(-100%); /* Initially hide off-screen */
+      transition: transform 0.3s ease; /* Smooth transition */
+      overflow-y: auto; /* Allow scrolling if content overflows */
+    }
+  
+    .AdminHomePageNavbar nav.open {
+      display: block; /* Ensure nav is displayed */
+      transform: translateX(0); /* Slide in when open */
+    }
+  
+    .AdminHomePageNavbar nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0;
+      padding: 1rem; /* Add padding to the list items */
+      width: 100%;
+    }
+  
+    .AdminHomePageNavbar nav ul li {
+      margin: 10px 0;
+    }
+  
+    .AdminHomePageNavbar nav ul li a {
+      font-size: 1.2rem;
+      padding: 10px;
+    }
+  
+    .menu-button {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  
+    .profile, .notifications {
+      position: absolute;
+      top: 10px;
+    }
+  
+    .profile {
+      right: 70px;
+    }
+  
+    .notifications {
+      right: 65px;
+      top: 13px;
+    }
+  }
+  
+  /* Body container */
+  .AdminHomePageBody {
+    flex-grow: 1;
+    padding: 2rem;
+    padding-right: 70px; /* Adjusted padding to match sidebar width */
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: flex-start; /* Ensure proper alignment of content */
+    gap: 2rem; /* Add space between sidebar and body content */
+  }
+  
+  /* Sidebar container */
+  .sidebar {
+    width: 70px; /* Adjust width as needed */
+    height: calc(100vh - 80px); /* Adjust height to fit within the viewport minus header/footer */
+    background: linear-gradient(#12b738, #000729);
+    position: fixed; /* Fixed position to stay in place */
+    top: 71px; /* Position below the navbar */
+    right: 0; /* Align to the right side */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1; /* Ensure it stays above other content */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+  
+  /* Hide sidebar in mobile view */
+  @media (max-width: 768px) {
+    .sidebar {
+      display: none; /* Hide sidebar when menu is open */
+    }
+  }
+  
+  /* Sidebar links */
+  .sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+  }
+  
+  .sidebar ul li a svg {
+    width: 30px; /* Adjust size of the icons */
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  /* Footer container */
+  .AdminHomePageFooter {
+    background: linear-gradient(#10bc60, #000729);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Active link styling */
+  .AdminHomePageNavbar nav ul li.active a {
+    color: #ffca28; /* Highlight color for active link */
+    border-bottom: 2px solid #ffca28; /* Optional underline for active link */
+  }
+  .LOANPOINTER{
+    cursor: pointer;
+  }
+
+  .adminslide{
+    left: 100px;
+  }
+  

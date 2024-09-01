@@ -1,0 +1,77 @@
+/* AdminLoan.css */
+.adminloanapplication {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.adminloanapplication h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.adminloanapplication-error {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.adminloanapplication-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.adminloanapplication-table th,
+.adminloanapplication-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.adminloanapplication-table th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+}
+
+.adminloanapplication-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.adminloanapplication-select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.adminloanapplication-select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.adminloanapplication-back-button {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.adminloanapplication-back-button:hover {
+    background-color: #45a049;
+}

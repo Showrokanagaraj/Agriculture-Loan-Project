@@ -1,0 +1,91 @@
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left:200px;
+    height: 560px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .slider-image-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .slider-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+  }
+  
+  /* Button styles */
+  .navigate-button {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Ensure buttons are above the image */
+  }
+  
+  .navigate-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .navigate-button.prev {
+    left: 10px; /* Adjust positioning to keep it within view */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .navigate-button.next {
+    right: 10px; /* Adjust positioning to keep it within view */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .slider-image-container .navigate-button.transparent {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%);
+    background-color: transparent;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    z-index: 10; /* Ensure the button is above the image */
+  }
+  
+  .slider-image-container .navigate-button.transparent:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Mobile view adjustments */
+  @media (max-width: 768px) {
+    .navigate-button.prev,
+    .navigate-button.next {
+      display: none;
+    }
+  
+    .slider {
+      height: 300px; /* Adjust the height for mobile view */
+    }
+  
+    .slider-image {
+      object-fit: cover; /* Ensure the image covers the entire container */
+    }
+  }
+  

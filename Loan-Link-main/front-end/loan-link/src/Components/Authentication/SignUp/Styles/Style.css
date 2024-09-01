@@ -1,0 +1,78 @@
+/* Reset global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.signup-container {
+    background-image: url('../../../../Assets/SignUp.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    padding: 20px;
+}
+
+.signup-box {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000000; /* Optional: You can set a color for the title */
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInScale 1s forwards; /* Apply the animation */
+}
+
+/* Define the animation */
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.signup-input {
+    margin-bottom: 15px;
+}
+
+.signup-button {
+    margin-top: 15px;
+}
+
+.signup-submit-button {
+    background: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.signup-login-button {
+    background: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+    margin-top: 10px;
+}
+
+.signup-already-user {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+}

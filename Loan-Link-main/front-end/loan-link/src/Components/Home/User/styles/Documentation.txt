@@ -1,0 +1,655 @@
+css.
+/* Container for the entire User home page */
+.UserHomePageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Navbar container */
+.UserHomePageNavbar {
+  background-color: #075391;
+  padding: 1rem 2rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Profile component styling */
+.profile {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2d6a4f;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+/* Notification icon styling */
+.notifications {
+  color: #ffffff;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Menu button (visible in mobile view) */
+.menu-button {
+  display: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2; /* Ensure it's above the menu */
+  position: relative; /* Keep it in flow with the document */
+}
+
+/* Navbar styling */
+.UserHomePageNavbar nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.UserHomePageNavbar nav ul li {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+}
+
+.UserHomePageNavbar nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.UserHomePageNavbar nav ul li a svg {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+/* Change color on hover */
+.UserHomePageNavbar nav ul li a:hover {
+  color: #95b3d5;
+}
+
+/* Logout button styling */
+.logout a {
+  color: #ffffff;
+}
+
+/* Add shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Apply shake animation to the notification icon on hover */
+.notifications:hover {
+  animation: shake 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .UserHomePageNavbar {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .UserHomePageNavbar nav {
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed positioning for overlay effect */
+    top: 60px;
+    left: 0;
+    width: 100vw; /* Cover full viewport width */
+    height: 100vh; /* Cover full viewport height */
+    background-color: #075391;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensure it is below the menu button */
+    transform: translateX(-100%); /* Initially hide off-screen */
+    transition: transform 0.3s ease; /* Smooth transition */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+
+  .UserHomePageNavbar nav.open {
+    display: block; /* Ensure nav is displayed */
+    transform: translateX(0); /* Slide in when open */
+  }
+
+  .UserHomePageNavbar nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 1rem; /* Add padding to the list items */
+    width: 100%;
+  }
+
+  .UserHomePageNavbar nav ul li {
+    margin: 10px 0;
+  }
+
+  .UserHomePageNavbar nav ul li a {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  .menu-button {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .profile, .notifications {
+    position: absolute;
+    top: 10px;
+  }
+
+  .profile {
+    right: 40px;
+  }
+
+  .notifications {
+    right: 35px;
+    top: 13px;
+  }
+}
+
+/* Body container */
+.UserHomePageBody {
+  flex-grow: 1;
+  padding: 2rem;
+  padding-left: 220px; /* Add padding to account for the sidebar width */
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: flex-start; /* Ensure proper alignment of content */
+  gap: 2rem; /* Add space between sidebar and body content */
+}
+
+/* Sidebar container */
+.sidebar {
+  width: 200px; /* Adjust width as needed */
+  height: calc(100vh - 80px); /* Adjust height to fit within the viewport minus header/footer */
+  background: linear-gradient(#00545d, #000729);
+  position: fixed; /* Fixed position to stay in place */
+  top: 80px; /* Position below the navbar */
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1; /* Ensure it stays above other content */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Sidebar links */
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.sidebar ul li a img {
+  width: 30px; /* Size of the icons */
+  margin: 5px;
+  cursor: pointer;
+}
+.UserHomePageFooter {
+  background-color: #075391;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+import React, { useState } from 'react';
+import './styles/User.css';
+import { FaBell, FaHome, FaUsers, FaFileAlt, FaNewspaper, FaPhoneAlt, FaSignOutAlt } from 'react-icons/fa';
+
+const User = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(prevMenuOpen => !prevMenuOpen);
+  };
+
+  return (
+    <div className='UserHomePageContainer'>
+      <div className='UserHomePageNavbar'>
+        <div className='profile'>
+          <span>U</span>
+        </div>
+        <div className='menu-button' onClick={toggleMenu}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff" width="24px" height="24px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+          </svg>
+        </div>
+        <nav className={menuOpen ? 'open' : ''}>
+          <ul>
+            <li><a href="#home"><FaHome size={24} /> Home</a></li>
+            <li><a href="#community-forum"><FaUsers size={24} /> Community Talks</a></li>
+            <li><a href="#loans"><FaFileAlt size={24} /> Loans</a></li>
+            <li><a href="#news-now"><FaNewspaper size={24} /> News Now</a></li>
+            <li><a href="#customer-care"><FaPhoneAlt size={24} /> Customer Care</a></li>
+            <li className='notifications'>
+              <a href="#notifications"><FaBell size={24} /></a>
+            </li>
+            <li className='logout'>
+              <a href="#logout"><FaSignOutAlt size={24} /> Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div className='UserHomePageBody'>
+        <div className='sidebar'>
+          <ul>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><img src="./SOURCE/fb.png" alt="Facebook" /></a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><img src="./SOURCE/ig.png" alt="Instagram" /></a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><img src="./SOURCE/twitter.png" alt="Twitter" /></a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><img src="./SOURCE/linkedin.png" alt="LinkedIn" /></a></li>
+          </ul>
+        </div>
+        {/* Main body content */}
+        <div className='main-content'>
+          {/* Add your main content here */}
+        </div>
+      </div>
+      <div className='UserHomePageFooter'>
+        {/* Footer content goes here */}
+      </div>
+    </div>
+  );
+}
+
+export default User;
+
+__________________________________________
+import React, { useContext, useState } from 'react';
+import './styles/User.css';
+import { FaBell, FaHome, FaUsers, FaFileAlt, FaNewspaper, FaPhoneAlt, FaSignOutAlt, FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import ImageSlider from './ImageSlider/ImageSlider';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../UserContext/UserContext';
+
+const User = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('home'); // Add state for active link
+  const navigate = useNavigate();
+  const { user, logout } = useContext(UserContext); // Get user from UserContext
+
+  // Extract the first letter of the username
+  const firstLetter = user?.name ? user.name.charAt(0).toUpperCase() : 'U';
+  console.log(firstLetter);
+
+  const toggleMenu = () => {
+    setMenuOpen(prevMenuOpen => !prevMenuOpen);
+  };
+  const GOTOMYLOANPAGE=()=>{
+    navigate('/PATHTOMYLOANS')
+  }
+
+  const handleLinkClick = (link) => {
+    if (window.innerWidth <= 768) {
+      setMenuOpen(false); // Close the menu on link click if in mobile view
+    }
+    setActiveLink(link); // Set the active link based on the clicked link
+  };
+
+const GOTOLOANDETAILS =()=>{
+  console.log(user);
+  navigate('/PATHTOLOANDETAILS')
+}
+const GOTOCTFF=()=>{
+  navigate('/PATHTOCFT');
+}
+
+  return (
+    <div className='UserHomePageContainer'>
+      <div className='UserHomePageNavbar'>
+        <div className='profile' >
+          <span>{firstLetter}</span> {/* Display the first letter of the username */}
+        </div>
+        <div className='menu-button' onClick={toggleMenu}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff" width="24px" height="24px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+          </svg>
+        </div>
+        <nav className={menuOpen ? 'open' : ''}>
+          <ul>
+            <li className={activeLink === 'home' ? 'active' : ''}>
+              <a href="#home"><FaHome size={24} /> Home</a>
+            </li>
+            <li className={activeLink === 'community-forum' ? 'active' : ''}>
+              <a onClick={GOTOCTFF}><FaUsers size={24} /> Community Talks</a>
+            </li>
+            <li className={activeLink === 'loans' ? 'active' : ''}>
+              <a onClick={GOTOLOANDETAILS} className='LOANPOINTER'><FaFileAlt size={24} /> Loans</a>
+            </li>
+            <li className={activeLink === 'news-now' ? 'active' : ''}>
+              <a href="#news-now" onClick={GOTOMYLOANPAGE}><FaNewspaper size={24} />My Loans</a>
+            </li>
+            <li className={activeLink === 'customer-care' ? 'active' : ''}>
+              <a href="#customer-care" onClick={() => handleLinkClick('customer-care')}><FaPhoneAlt size={24} /> Customer Care</a>
+            </li>
+            <li className='notifications'>
+              <a href="#notifications" onClick={() => handleLinkClick('notifications')}><FaBell size={24} /></a>
+            </li>
+            <li className='logout'>
+              <a href="/PATHTOlogout" onClick={logout}><FaSignOutAlt size={24} /> Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className='UserHomePageBody'>
+        <div className={`sidebar ${menuOpen ? 'hidden' : ''}`}>
+          <ul>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook size={30} /></a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram size={30} /></a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter size={30} /></a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin size={30} /></a></li>
+          </ul>
+        </div>
+        <div className='main-content'>
+          <ImageSlider />
+        </div>
+      </div>
+      <div className='UserHomePageFooter'>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+      </div>
+    </div>
+  );
+}
+
+export default User;
+
+
+
+/* Container for the entire User home page */
+.UserHomePageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Navbar container */
+.UserHomePageNavbar {
+  background: linear-gradient(#00545d, #000729);
+  padding: 1rem 2rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Profile component styling */
+.profile {
+  background-color: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2d6a4f;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+/* Notification icon styling */
+.notifications {
+  color: #ffffff;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Menu button (visible in mobile view) */
+.menu-button {
+  display: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2; /* Ensure it's above the menu */
+  position: relative; /* Keep it in flow with the document */
+}
+
+/* Navbar styling */
+.UserHomePageNavbar nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.UserHomePageNavbar nav ul li {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+}
+
+.UserHomePageNavbar nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.UserHomePageNavbar nav ul li a svg {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+/* Change color on hover */
+.UserHomePageNavbar nav ul li a:hover {
+  color: #95b3d5;
+}
+
+/* Logout button styling */
+.logout a {
+  color: #ffffff;
+}
+
+/* Add shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Apply shake animation to the notification icon on hover */
+.notifications:hover {
+  animation: shake 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .UserHomePageNavbar {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .UserHomePageNavbar nav {
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed positioning for overlay effect */
+    top: 60px;
+    left: 0;
+    width: 100vw; /* Cover full viewport width */
+    height: 100vh; /* Cover full viewport height */
+    background:linear-gradient(#00545d, #000729);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensure it is below the menu button */
+    transform: translateX(-100%); /* Initially hide off-screen */
+    transition: transform 0.3s ease; /* Smooth transition */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+
+  .UserHomePageNavbar nav.open {
+    display: block; /* Ensure nav is displayed */
+    transform: translateX(0); /* Slide in when open */
+  }
+
+  .UserHomePageNavbar nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 1rem; /* Add padding to the list items */
+    width: 100%;
+  }
+
+  .UserHomePageNavbar nav ul li {
+    margin: 10px 0;
+  }
+
+  .UserHomePageNavbar nav ul li a {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  .menu-button {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .profile, .notifications {
+    position: absolute;
+    top: 10px;
+  }
+
+  .profile {
+    right: 70px;
+  }
+
+  .notifications {
+    right: 65px;
+    top: 13px;
+  }
+}
+
+/* Body container */
+.UserHomePageBody {
+  flex-grow: 1;
+  padding: 2rem;
+  padding-right: 70px; /* Adjusted padding to match sidebar width */
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: flex-start; /* Ensure proper alignment of content */
+  gap: 2rem; /* Add space between sidebar and body content */
+}
+
+/* Sidebar container */
+.sidebar {
+  width: 70px; /* Adjust width as needed */
+  height: calc(100vh - 80px); /* Adjust height to fit within the viewport minus header/footer */
+  background: linear-gradient(#00545d, #000729);
+  position: fixed; /* Fixed position to stay in place */
+  top: 71px; /* Position below the navbar */
+  right: 0; /* Align to the right side */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1; /* Ensure it stays above other content */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Hide sidebar in mobile view */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide sidebar when menu is open */
+  }
+}
+
+/* Sidebar links */
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.sidebar ul li a svg {
+  width: 30px; /* Adjust size of the icons */
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Footer container */
+.UserHomePageFooter {
+  background: linear-gradient(#00545d, #000729);
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Active link styling */
+.UserHomePageNavbar nav ul li.active a {
+  color: #ffca28; /* Highlight color for active link */
+  border-bottom: 2px solid #ffca28; /* Optional underline for active link */
+}
+.LOANPOINTER{
+  cursor: pointer;
+}
+
+/* Adjust other styling rules if necessary */
+
+/* Example of existing styles for reference */
+/* .UserHomePageNavbar nav ul li a:hover {
+  color: #95b3d5;
+} */
+

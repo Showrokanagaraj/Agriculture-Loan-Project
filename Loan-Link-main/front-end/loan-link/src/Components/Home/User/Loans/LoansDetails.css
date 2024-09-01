@@ -1,0 +1,254 @@
+.loans-details-page {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #10b85c, #000729);
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .leftsideofpageofloandetails,
+  .rightsideofpageofloandetails {
+    flex: 1;
+    padding: 20px;
+    margin-right: 5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .rightsideofpageofloandetails {
+    margin-right: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 2px solid #00aaff;
+    position: relative;
+  }
+  
+  .loan-item {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .loan-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+  }
+  
+  .apply-button {
+    background-color: #00aaff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .apply-button:hover {
+    background-color: #0077cc;
+    transform: translateY(-3px);
+  }
+  
+  .loan-application-form {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .loan-application-form h2 {
+    margin-bottom: 20px;
+    color: #00aaff;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #e0e0e0;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .form-group input:disabled {
+    background-color: #e0e0e0;
+    color: #666;
+  }
+  
+  .payment-section {
+    margin-top: 30px;
+  }
+  
+  .payment-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .payment-button:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+  }
+  
+  .payment-success {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  .submit-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .back-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8f9fa;
+    color: #343a40;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
+  }
+  
+  .back-button:hover {
+    background-color: #e2e6ea;
+    transform: translateY(-3px);
+  }
+  @media (max-width: 768px) {
+    .loans-details-page {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .leftsideofpageofloandetails,
+    .rightsideofpageofloandetails {
+      width: 100%; /* Full width for both sections */
+      margin-right: 0;
+      padding: 10px;
+    }
+  
+    .loan-item {
+      padding: 10px;
+    }
+  
+    .loan-application-form {
+      padding: 15px;
+      width: 100%;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+  
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+  
+    .apply-button,
+    .payment-button,
+    .submit-button,
+    .back-button {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+  
+    .back-button {
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .loans-details-page {
+      flex-direction: column;
+      padding: 5px;
+    }
+  
+    .leftsideofpageofloandetails,
+    .rightsideofpageofloandetails {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+  
+    .loan-item h3,
+    .loan-application-form h2 {
+      font-size: 16px;
+    }
+  
+    .loan-item p,
+    .form-group label {
+      font-size: 14px;
+    }
+  
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  
+    .form-group {
+      margin-bottom: 10px;
+    }
+  
+    .apply-button,
+    .payment-button,
+    .submit-button,
+    .back-button {
+      padding: 10px;
+      font-size: 14px;
+      width: 100%; /* Full width buttons */
+      box-sizing: border-box;
+    }
+  }
+  

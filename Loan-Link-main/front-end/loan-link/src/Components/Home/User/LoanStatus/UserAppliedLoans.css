@@ -1,0 +1,68 @@
+/* UserAppliedLoans.css */
+
+.loanapplication-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f8f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.loanapplication-heading {
+    text-align: center;
+    color: #2e8b57; /* Leaf green color */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.loanapplication-error {
+    color: #ff4d4d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.loanapplication-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.loanapplication-table th,
+.loanapplication-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.loanapplication-table th {
+    background-color: #2e8b57;
+    color: white;
+}
+
+.loanapplication-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.loanapplication-table tr:hover {
+    background-color: #d9ead3;
+}
+
+.loanapplication-back-button {
+    display: inline-block;
+    background-color: #2e8b57;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.loanapplication-back-button:hover {
+    background-color: #276a46;
+}

@@ -1,0 +1,130 @@
+/* General Container Styles */
+.userdetails-container {
+  padding: 2rem;
+  position: relative; /* For positioning the back button */
+}
+
+/* Heading Styles */
+.userdetails-container h2 {
+  font-size: 2rem;
+  color: #0e9e2d;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.userdetails-container h3 {
+  font-size: 1.5rem;
+  color: #0ca63d;
+  margin-bottom: 0.5rem;
+}
+
+/* Table Styles */
+.userdetails-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.userdetails-table,
+.userdetails-table th,
+.userdetails-table td {
+  border: 1px solid #ddd;
+}
+
+.userdetails-table th,
+.userdetails-table td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.userdetails-table thead {
+  background-color: #08914f;
+  color: #ffffff;
+}
+
+.userdetails-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.userdetails-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.userdetails-button {
+  background-color: #0a9d49;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.userdetails-button:hover {
+  background-color: #14af4a;
+}
+
+/* Form Styles */
+.userdetails-edit-form {
+  margin-top: 1rem;
+}
+
+.userdetails-edit-form label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.userdetails-edit-form input[type="text"] {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.userdetails-edit-form input[type="text"]:focus {
+  border-color: #00545d;
+  outline: none;
+}
+
+/* Error and Loading Styles */
+.userdetails-error,
+.userdetails-loading {
+  text-align: center;
+  font-size: 1rem;
+  color: #d9534f;
+}
+
+/* Back Button Styles */
+.userdetails-back-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #07a12b;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.userdetails-back-button:hover {
+  background-color: #06a851;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .userdetails-table,
+  .userdetails-table th,
+  .userdetails-table td {
+      font-size: 0.875rem;
+  }
+
+  .userdetails-button {
+      padding: 0.5rem;
+      font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,121 @@
+/* SignIn.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.signin-container {
+    background-image: url('../../../../Assets/Login.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    animation: fadeIn 2s ease-out;
+}
+
+.signin-box {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+}
+
+.signin-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #003366; /* Optional: You can set a color for the title */
+    animation: bounceIn 1s ease-out;
+}
+
+.signin-input {
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.signin-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.signin-button {
+    background: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.signin-button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.signin-signup-button {
+    background: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+    margin-top: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.signin-signup-button:hover {
+    background: #007bff;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+.signin-footer {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

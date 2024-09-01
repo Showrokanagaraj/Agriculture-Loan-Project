@@ -1,0 +1,81 @@
+import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import { UserContext } from '../../../UserContext/UserContext';
+
+const LoanApplicationsByEmail = () => {
+    const [email, setEmail] = useState('');
+    const [loanApplications, setLoanApplications] = useState([]);
+    const [error, setError] = useState('');
+
+const user=useContext(UserContext);
+    const handleInputChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const fetchLoanApplications = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5454/auth/api/users_list/getemail`, {
+                params: { email }
+            });
+            setLoanApplications(response.data);
+            setError(''); // Clear any previous errors
+        } catch (error) {
+            setError('Failed to fetch loan applications. Please try again.');
+            setLoanApplications([]); // Clear any previous data
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetchLoanApplications();
+    };
+
+    return (
+        <div>
+            <h2>Find Loan Applications by Email</h2>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="email" 
+                    value={email} 
+                    onChange={handleInputChange} 
+                    placeholder="Enter email" 
+                    required 
+                />
+                <button type="submit">Search</button>
+            </form>
+            
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            
+            {loanApplications.length > 0 ? (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Loan ID</th>
+                            <th>Loan Name</th>
+                            <th>Loan Amount</th>
+                            <th>Interest Rate</th>
+                            <th>Loan Tenure</th>
+                            <th>Application Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {loanApplications.map((loan) => (
+                            <tr key={loan.id}>
+                                <td>{loan.id}</td>
+                                <td>{loan.loanName}</td>
+                                <td>{loan.loanAmount}</td>
+                                <td>{loan.interestRate}</td>
+                                <td>{loan.loanTenure}</td>
+                                <td>{loan.status}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                <p>No loan applications found for this email.</p>
+            )}
+        </div>
+    );
+};
+
+export default LoanApplicationsByEmail;

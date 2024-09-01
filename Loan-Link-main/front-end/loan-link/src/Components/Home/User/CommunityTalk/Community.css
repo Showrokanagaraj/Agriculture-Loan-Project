@@ -1,0 +1,140 @@
+/* Overall Comment Section Styling */
+.comment-section {
+  background: linear-gradient(45deg, #2c3e50, #24c562); /* Darker gradient for a professional look */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #ecf0f1;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative; /* Ensures positioning context for child elements */
+}
+
+/* Comment Form Styling */
+.comment-form {
+  margin-bottom: 20px;
+}
+
+.comment-input {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fff;
+  color: #333;
+  resize: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.comment-submit {
+  background: #2980b9; /* Professional blue */
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-submit:hover {
+  background: #3498db; /* Lighter blue on hover */
+  transform: scale(1.05); /* Slightly scale up */
+}
+
+.comment-submit:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 4px rgba(41, 128, 185, 0.3); /* Focus ring */
+}
+
+.comment-submit:active {
+  background: #1f4f7f; /* Darker blue on click */
+  transform: scale(0.98); /* Slightly scale down */
+}
+
+/* Comments List Styling */
+.comments-list {
+  margin-top: 20px;
+}
+
+.comment-item {
+  background: #ecf0f1; /* Light grey background */
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #2c3e50; /* Dark text color for contrast */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-item:hover {
+  background-color: #bdc3c7; /* Slightly darker grey on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.role-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.role-badge.admin {
+  background: #e74c3c; /* Professional red for admin */
+  color: #fff;
+}
+
+.role-badge.user {
+  background: #2ecc71; /* Professional green for user */
+  color: #fff;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #95a5a6; /* Lighter grey for timestamps */
+}
+
+.comment-message {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Back Button Styling */
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2980b9; /* Matching professional blue */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 1000; /* Ensures the button is on top of other content */
+}
+
+.back-button:hover {
+  background: #3498db; /* Lighter blue on hover */
+  transform: scale(1.05); /* Slightly scale up */
+}
+
+.back-button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 4px rgba(41, 128, 185, 0.3); /* Focus ring */
+}
+
+.back-button:active {
+  background: #1f4f7f; /* Darker blue on click */
+  transform: scale(0.98); /* Slightly scale down */
+}

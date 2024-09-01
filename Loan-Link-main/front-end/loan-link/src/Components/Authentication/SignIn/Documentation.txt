@@ -1,0 +1,124 @@
+import React, { useState, useContext } from 'react';
+import './Styles/SignIn.css';
+import { useNavigate } from 'react-router';
+import { Button, TextField } from '@mui/material';
+import axios from 'axios';
+import { UserContext } from '../../UserContext/UserContext';
+
+const SignIn = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleSignupRedirect = () => {
+    navigate("/PATHTOSIGNUP");
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Basic input validation
+    if (!username) {
+      alert("Please enter an email.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(username)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!password) {
+      alert("Please enter your password.");
+      return;
+    }
+
+    const passRegex = /^[a-zA-Z0-9._-]{8,}$/;
+    if (!passRegex.test(password)) {
+      alert('Please enter a valid password with at least 8 characters.');
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5454/auth/api/users_list/Login', {
+        email: username,
+        password: password
+        
+      });
+      console.log(username);
+      console.log(password);
+
+      if (response.status === 200) {
+        const user = response.data;
+        console.log(user.email);
+        console.log(user.password);
+        
+
+        // Compare entered username and password with the returned data
+        if (user && user.email === username && user.password === password) {
+          alert('Login successful!');
+          login(user);
+          navigate('/Home');
+        } else {
+          alert('Please enter the correct password.');
+        }
+      } else {
+        alert('Invalid email or password.');
+      }
+    } catch (error) {
+      alert("An error occurred. Please try again.");
+      console.error('Login error:', error);
+    }
+  };
+
+  return (
+    <div className='signin-container'>
+      <div className='signin-box'>
+        <form onSubmit={handleSubmit}>
+          <h1 className='signin-title'>Login</h1>
+          <TextField
+            type='text'
+            label='Email'
+            className='signin-input'
+            value={username}
+            placeholder='Enter Email'
+            onChange={e => setUsername(e.target.value)}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            type="password"
+            label='Password'
+            className='signin-input'
+            value={password}
+            placeholder='Enter Password'
+            onChange={e => setPassword(e.target.value)}
+            fullWidth
+            margin="normal"
+          />
+          <Button
+            type="submit"
+            className='signin-button'
+            fullWidth
+            variant="contained"
+          >
+            Submit
+          </Button>
+          <p className='signin-footer'>New user/admin?</p>
+          <Button
+            className='signin-signup-button'
+            onClick={handleSignupRedirect}
+            fullWidth
+            variant="outlined"
+          >
+            SignUp
+          </Button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default SignIn;
